@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kesehatan Harimau</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #102820, #1d3b2a, #111);
+            color: white;
+        }
+
+        /* HEADER */
+        header {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)),
+                url("harimau.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero {
+            max-width: 850px;
+            animation: muncul 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            color: #ffb300;
+            text-shadow: 0 5px 20px black;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 15px;
+            color: #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 28px;
+            background: #ff8c00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #ffc107;
+            transform: scale(1.08);
+            color: #111;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            padding: 18px;
+            background: rgba(10, 20, 15, .95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #ff9800;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #ffb300;
+            transform: translateY(-3px);
+        }
+
+        /* CONTENT */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .judul h2 {
+            font-size: 38px;
+            color: #ffb300;
+        }
+
+        .judul p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        /* CARD */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #203b2b, #14251c);
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid #456b50;
+            box-shadow: 0 10px 25px rgba(0,0,0,.35);
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #ff9800;
+            box-shadow: 0 15px 35px rgba(255,152,0,.2);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #ffb300;
+            margin-bottom: 12px;
+            font-size: 23px;
+        }
+
+        .card p {
+            color: #ddd;
+            line-height: 1.7;
+        }
+
+        /* ARTIKEL */
+        .artikel {
+            margin-top: 60px;
+            background: #f7f3e8;
+            color: #222;
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 15px 35px rgba(0,0,0,.4);
+        }
+
+        .artikel h2 {
+            color: #c75b00;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .artikel h3 {
+            color: #27623b;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .artikel p {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .artikel img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* INFO */
+        .info {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            text-align: center;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            text-align: center;
+            background: #08130e;
+            border-top: 2px solid #ff9800;
+            color: #aaa;
+        }
+
+        footer strong {
+            color: #ffb300;
+        }
+
+        /* ANIMASI */
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .artikel {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="beranda">
+
+        <div class="hero">
+
+            <h1>🐅 KESEHATAN HARIMAU</h1>
+
+            <p>
+                Mengenal pentingnya kesehatan, habitat,
+                dan kelestarian salah satu predator terbesar di dunia.
+            </p>
+
+            <a href="#artikel" class="btn">
+                Baca Artikel ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <a href="#beranda">Beranda</a>
+
+        <a href="#kesehatan">Kesehatan</a>
+
+        <a href="#artikel">Artikel</a>
+
+        <a href="#konservasi">Konservasi</a>
+
+    </nav>
+
+
+    <main class="container">
+
+        <!-- JUDUL -->
+        <section class="judul" id="kesehatan">
+
+            <h2>Menjaga Kesehatan Harimau</h2>
+
+            <p>
+                Kesehatan harimau sangat penting untuk menjaga
+                keberlangsungan hidup dan keseimbangan ekosistem.
+            </p>
+
+        </section>
+
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="icon">🥩</div>
+
+                <h3>Makanan</h3>
+
+                <p>
+                    Harimau membutuhkan makanan yang cukup dan
+                    bergizi untuk menjaga energi serta kondisi tubuhnya.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🌳</div>
+
+                <h3>Habitat</h3>
+
+                <p>
+                    Lingkungan yang aman dan memiliki sumber air
+                    serta makanan sangat penting bagi kehidupan harimau.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🩺</div>
+
+                <h3>Pemeriksaan</h3>
+
+                <p>
+                    Harimau di pusat konservasi perlu mendapatkan
+                    pemeriksaan kesehatan secara berkala.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARTIKEL -->
+        <section class="artikel" id="artikel">
+
+            <img src="harimau.jpg" alt="Harimau di habitatnya">
+
+            <h2>Pentingnya Menjaga Kesehatan Harimau</h2>
+
+            <p>
+                Harimau merupakan salah satu predator yang memiliki
+                peran penting dalam menjaga keseimbangan ekosistem.
+                Kondisi kesehatan harimau perlu diperhatikan agar
+                populasinya dapat tetap bertahan.
+            </p>
+
+
+            <h3>Faktor yang Memengaruhi Kesehatan</h3>
+
+            <p>
+                Kesehatan harimau dipengaruhi oleh makanan, air,
+                kondisi lingkungan, aktivitas fisik, serta kondisi
+                habitatnya. Habitat yang baik membantu harimau
+                mendapatkan kebutuhan hidupnya.
+            </p>
+
+
+            <h3>Perawatan Harimau</h3>
+
+            <p>
+                Harimau yang berada di kawasan konservasi dapat
+                mendapatkan pemeriksaan kesehatan secara berkala.
+                Pemeriksaan dilakukan untuk mengetahui kondisi tubuh
+                dan mendeteksi gangguan kesehatan sejak dini.
+            </p>
+
+
+            <h3>Menjaga Habitat</h3>
+
+            <p>
+                Menjaga hutan merupakan salah satu cara penting
+                untuk membantu menjaga kesehatan harimau.
+                Hutan menyediakan tempat berlindung, air,
+                dan sumber makanan bagi harimau.
+            </p>
+
+
+            <h3>Kesimpulan</h3>
+
+            <p>
+                Menjaga kesehatan harimau tidak hanya dilakukan
+                dengan merawat hewannya, tetapi juga dengan
+                melindungi habitatnya. Konservasi dan perlindungan
+                lingkungan sangat penting agar harimau tetap dapat
+                hidup dengan baik.
+            </p>
+
+        </section>
+
+
+        <!-- INFO -->
+        <section class="info" id="konservasi">
+
+            <h2>🌿 Lindungi Habitatnya!</h2>
+
+            <p>
+                Menjaga hutan berarti ikut menjaga kehidupan harimau
+                dan berbagai satwa lainnya.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <strong>Kesehatan Harimau</strong>
+            | Tugas Praktikum Pemrograman Web Rio Ferdian
+        </p>
+
+    </footer>
+
+</body>
+</html>
